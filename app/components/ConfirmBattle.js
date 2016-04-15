@@ -1,5 +1,10 @@
 var React = require('react');
 var PropTypes = React.PropTypes;
+var styles = require('../styles');
+var ReactRouter = require('react-router');
+var Link = ReactRouter.Link;
+var UserDetailsWrapper = require('./UserDetailsWrapper');
+var UserDetails = require('./UserDetails');
 
 function puke (obj){
 	return <pre>{JSON.stringify(obj, null, '')}</pre>
