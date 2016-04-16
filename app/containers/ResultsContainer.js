@@ -10,14 +10,21 @@ var ResultsContainer = React.createClass({
 		}
 	},
 	componentDidMount: function(){
-		console.log(this.props.location.state.playersInfo)
+		// console.log(this.props.location.state.playersInfo)
+		githubHelpers.battle(this.props.location.state.playersInfo)
+			.then( function (scores){
+					this.setState({
+						scores: scores,
+						isLoading: false
+						})
+					}.bind(this))
 	},
 	render: function() {
 		return (
 			<Results isLoading={this.state.isLoading} scores={this.state.scores} />
-			);
+			)
 	}
-	
+
 });
 
 module.exports = ResultsContainer;
