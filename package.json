@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "production": "webpack -p"
+    "production": "webpack -p",
+    "test": "ava 'app/**/*.test.js' --verbose --require ./other/setup-ava-tests.js"
   },
   "author": "Tyler McGinnis <tylermcginnis33@gmail.com> (http://tylermcginnis.com)",
   "license": "ISC",
