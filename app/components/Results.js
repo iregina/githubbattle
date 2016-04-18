@@ -5,6 +5,7 @@ var UserDetailsWrapper = require('./UserDetailsWrapper');
 var UserDetails = require('./UserDetails');
 var Link = require('react-router').Link;
 var MainContainer = require('./MainContainer');
+var Loading = require('./Loading');
 
 function StartOver () {
 	return (
@@ -16,19 +17,24 @@ function StartOver () {
 	)
 }
 
-
-function Results (props) {
-	if (props.isLoading === true) {
-		return (
-			<p> Loading </p>
-			)
-	}
-	if (props.scores[0] === props.scores[1]) {
-		return (
+function Tie (props) {
+	return (
 			<MainContainer>
 			<h1> It is is a tie! </h1>
 			<StartOver />
 			</MainContainer>
+		)
+}
+
+function Results (props) {
+	if (props.isLoading === true) {
+		return (
+			<Loading text="One Moment" speed={100}/>
+			)
+	}
+	if (props.scores[0] === props.scores[1]) {
+		return (
+			<Tie scores={props.scores} playersInfo={props.playersInfo} />
 		)
 	}
 
